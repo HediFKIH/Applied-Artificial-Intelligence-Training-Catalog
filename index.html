@@ -19,10 +19,8 @@ body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--sans);-
 a{color:inherit;text-decoration:none}
 ::selection{background:var(--mint);color:var(--deep)}
 
-/* progress */
 #bar{position:fixed;top:0;left:0;height:2px;width:0;background:var(--mint);z-index:100;transition:width .1s linear}
 
-/* nav */
 nav{position:fixed;top:0;left:0;right:0;z-index:60;display:flex;align-items:center;justify-content:space-between;
   padding:14px clamp(20px,5vw,72px);background:rgba(6,42,49,.72);backdrop-filter:blur(14px);
   border-bottom:1px solid rgba(255,255,255,.08);color:#EAF1F0}
@@ -33,11 +31,15 @@ nav .links{display:flex;gap:4px;font-family:var(--mono);font-size:10.5px;letter-
 nav .links a{padding:7px 10px;border-radius:99px;color:rgba(234,241,240,.62);transition:.2s}
 nav .links a:hover{color:#fff;background:rgba(255,255,255,.08)}
 nav .links a.on{color:var(--deep);background:var(--mint)}
-nav .cta{font-family:var(--mono);font-size:10.5px;letter-spacing:.06em;text-transform:uppercase;padding:9px 14px;border:1px solid rgba(255,255,255,.28);border-radius:99px;transition:.2s}
+nav .right{display:flex;align-items:center;gap:10px}
+.lang{display:flex;border:1px solid rgba(255,255,255,.24);border-radius:99px;overflow:hidden;font-family:var(--mono);font-size:10px;letter-spacing:.08em}
+.lang button{background:none;border:0;color:rgba(234,241,240,.66);padding:7px 11px;cursor:pointer;transition:.18s;font:inherit}
+.lang button:hover{color:#fff}
+.lang button.on{background:var(--mint);color:var(--deep)}
+nav .cta{font-family:var(--mono);font-size:10.5px;letter-spacing:.06em;text-transform:uppercase;padding:9px 14px;border:1px solid rgba(255,255,255,.28);border-radius:99px;transition:.2s;white-space:nowrap}
 nav .cta:hover{background:#fff;color:var(--deep);border-color:#fff}
 .burger{display:none;background:none;border:0;color:#EAF1F0;font-size:20px;cursor:pointer}
 
-/* hero */
 header{position:relative;overflow:hidden;background:var(--deep);color:#EAF1F0;padding:clamp(120px,17vh,190px) clamp(20px,5vw,72px) clamp(56px,8vh,88px)}
 header .grid{position:absolute;inset:0;opacity:.5;
   background-image:linear-gradient(rgba(111,194,207,.09) 1px,transparent 1px),linear-gradient(90deg,rgba(111,194,207,.09) 1px,transparent 1px);
@@ -55,13 +57,11 @@ header p.lede{font-size:clamp(15px,1.4vw,18px);line-height:1.65;color:#B9D2D3;ma
 .stat b{display:block;font-size:32px;font-weight:800;letter-spacing:-.03em;color:#fff}
 .stat span{font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:#7FB3BC}
 
-/* section shell */
 main{max-width:1180px;margin:0 auto;padding:0 clamp(20px,5vw,72px)}
 section{padding:clamp(56px,9vh,104px) 0;border-bottom:1px solid var(--line)}
 .sec-label{font-family:var(--mono);font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);margin-bottom:14px}
 h2{font-size:clamp(26px,3.4vw,40px);font-weight:800;letter-spacing:-.03em;line-height:1.08;margin:0 0 14px}
 
-/* instructor */
 .bio{display:grid;grid-template-columns:270px 1fr;gap:clamp(28px,4vw,56px);align-items:start}
 .photo{position:relative;aspect-ratio:4/5;border-radius:6px;overflow:hidden;background:var(--paper2);
   border:1px dashed rgba(10,20,22,.28);display:flex;align-items:center;justify-content:center;cursor:pointer;transition:.2s}
@@ -72,14 +72,12 @@ h2{font-size:clamp(26px,3.4vw,40px);font-weight:800;letter-spacing:-.03em;line-h
 .tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:20px}
 .tag{font-family:var(--mono);font-size:10.5px;letter-spacing:.04em;padding:6px 12px;border-radius:99px;background:var(--paper2);color:var(--petrol);border:1px solid var(--line)}
 
-/* filter */
 .filters{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 32px}
 .filters button{font-family:var(--mono);font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;padding:9px 15px;border-radius:99px;
   border:1px solid var(--line);background:transparent;color:var(--muted);cursor:pointer;transition:.18s}
 .filters button:hover{border-color:var(--petrol);color:var(--petrol)}
 .filters button.on{background:var(--deep);border-color:var(--deep);color:#fff}
 
-/* course cards */
 .courses{display:grid;gap:18px}
 .course{border:1px solid var(--line);border-radius:10px;background:#fff;overflow:hidden;transition:.25s;scroll-margin-top:88px}
 .course:hover{border-color:rgba(14,79,91,.4);box-shadow:0 14px 44px -22px rgba(6,42,49,.45)}
@@ -107,23 +105,28 @@ h2{font-size:clamp(26px,3.4vw,40px);font-weight:800;letter-spacing:-.03em;line-h
 .meta a{color:var(--petrol);border-bottom:1px solid rgba(14,79,91,.35)}
 .meta a:hover{color:var(--deep)}
 
-/* delivery */
 .deliv{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:clamp(20px,3vw,40px)}
 .deliv h4{font-family:var(--mono);font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--petrol);margin:0 0 12px}
 .deliv p,.deliv li{font-size:14px;line-height:1.65;color:#243033;margin:0 0 8px}
 .deliv ul{margin:0;padding-left:16px}
 
-/* footer */
 footer{background:var(--deep);color:#EAF1F0;padding:clamp(56px,8vh,88px) clamp(20px,5vw,72px)}
 footer .inner{max-width:1180px;margin:0 auto;display:grid;grid-template-columns:1fr auto;gap:40px;align-items:end}
 footer h2{color:#fff;margin:0 0 16px}
-footer a.mail{font-family:var(--serif);font-size:clamp(22px,3vw,34px);color:var(--mint);border-bottom:1px solid rgba(111,194,207,.4)}
+.mailbtn{display:inline-flex;align-items:center;gap:12px;font-family:var(--sans);font-weight:700;font-size:clamp(16px,1.8vw,20px);
+  color:var(--deep);background:var(--mint);border:0;border-radius:99px;padding:16px 26px;cursor:pointer;transition:.2s}
+.mailbtn:hover{background:#fff;transform:translateY(-2px)}
+.mailbtn svg{width:18px;height:18px}
+.mailnote{font-family:var(--mono);font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;color:#7FB3BC;margin:12px 0 0}
 footer .c{font-family:var(--mono);font-size:11.5px;line-height:2;color:#9FC4C9;text-align:right}
+footer .c a:hover{color:var(--mint)}
+.visits{margin-top:26px;padding-top:16px;border-top:1px solid rgba(255,255,255,.14);font-family:var(--mono);font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:#7FB3BC;display:flex;align-items:center;gap:10px}
+.visits b{color:#fff;font-size:14px;letter-spacing:0}
 
-/* reveal */
 .rv{opacity:0;transform:translateY(18px);transition:opacity .7s ease,transform .7s cubic-bezier(.2,.7,.3,1)}
 .rv.in{opacity:1;transform:none}
 
+@media(max-width:1080px){nav .links{gap:0}nav .links a{padding:7px 7px}}
 @media(max-width:900px){
   nav .links{display:none}
   nav .links.open{display:flex;position:absolute;top:100%;left:0;right:0;flex-direction:column;background:var(--deep);padding:10px 20px 18px;gap:2px}
@@ -142,25 +145,30 @@ footer .c{font-family:var(--mono);font-size:11.5px;line-height:2;color:#9FC4C9;t
 <nav>
   <a class="brand" href="#top"><i></i>Hedi Fkih, PhD</a>
   <div class="links" id="links">
-    <a href="#instructor">Instructor</a>
+    <a href="#instructor" data-i18n="nav.instructor">Instructor</a>
     <a href="#p01">P-01</a><a href="#p02">P-02</a><a href="#p03">P-03</a>
     <a href="#p04">P-04</a><a href="#p05">P-05</a><a href="#p06">P-06</a>
-    <a href="#delivery">Delivery</a>
+    <a href="#delivery" data-i18n="nav.delivery">Delivery</a>
   </div>
-  <a class="cta" href="#book">Book a session</a>
-  <button class="burger" id="burger" aria-label="Menu">☰</button>
+  <div class="right">
+    <div class="lang" id="lang">
+      <button data-l="en" class="on">EN</button><button data-l="fr">FR</button>
+    </div>
+    <a class="cta" href="#book" data-i18n="nav.cta">Book a session</a>
+    <button class="burger" id="burger" aria-label="Menu">☰</button>
+  </div>
 </nav>
 
 <header id="top">
   <div class="grid"></div><div class="glow"></div>
   <div class="inner">
-    <div class="eyebrow">Instructor-led training · Edition 2026</div>
-    <h1>Applied <em>Artificial</em> Intelligence</h1>
-    <p class="lede">Six standalone courses, ordered from foundations to specialization — Python and machine learning, applied agricultural AI, three NVIDIA-certifying deep learning and generative AI courses, and agentic software engineering. Taught by an NVIDIA-certified instructor who builds these systems in production.</p>
+    <div class="eyebrow" data-i18n="hero.eyebrow">Instructor-led training · Edition 2026</div>
+    <h1 data-i18n-html="hero.h1">Applied <em>Artificial</em> Intelligence</h1>
+    <p class="lede" data-i18n="hero.lede">Six standalone courses, ordered from foundations to specialization — Python and machine learning, applied agricultural AI, three NVIDIA-certifying deep learning and generative AI courses, and agentic software engineering. Taught by an NVIDIA-certified instructor who builds these systems in production.</p>
     <div class="stats">
-      <div class="stat"><b>6</b><span>Standalone courses</span></div>
-      <div class="stat"><b>3</b><span>NVIDIA certificates</span></div>
-      <div class="stat"><b>8+</b><span>Years in production AI</span></div>
+      <div class="stat"><b>6</b><span data-i18n="hero.s1">Standalone courses</span></div>
+      <div class="stat"><b>3</b><span data-i18n="hero.s2">NVIDIA certificates</span></div>
+      <div class="stat"><b>8+</b><span data-i18n="hero.s3">Years in production AI</span></div>
     </div>
   </div>
 </header>
@@ -168,39 +176,39 @@ footer .c{font-family:var(--mono);font-size:11.5px;line-height:2;color:#9FC4C9;t
 <main>
 
 <section id="instructor" class="rv">
-  <div class="sec-label">The instructor</div>
-  <h2>Who teaches these programs</h2>
+  <div class="sec-label" data-i18n="ins.label">The instructor</div>
+  <h2 data-i18n="ins.h2">Who teaches these programs</h2>
   <div class="bio" style="margin-top:32px">
     <div class="photo" id="photo" tabindex="0" role="button" aria-label="Add instructor photo">
-      <img src="hedi.png" alt="Hedi Fkih">
+      <span class="hint" data-i18n-html="ins.drop">Drop your photo here<br>or click to choose</span>
       <input type="file" id="file" accept="image/*" hidden>
     </div>
     <div>
-      <p>DATA &amp; AI Tech Lead with 8+ years of experience designing, developing, and deploying production-grade Artificial Intelligence solutions. PhD in Computer Science specializing in Deep Learning, Computer Vision, and Generative AI. NVIDIA Instructor &amp; Platinum Ambassador.</p>
-      <p>Experienced in leading multidisciplinary AI teams, architecting enterprise-scale AI systems, and delivering innovative R&amp;D projects from research to production across Generative AI, LLMs, Agentic AI, Computer Vision, MLOps, and AI-driven observability.</p>
-      <p>Strong expertise in integrating AI capabilities with Application Performance Monitoring (APM) and Digital Experience Monitoring (DEM) platforms to enhance system reliability, automate root cause analysis, and improve end-user experience. Skilled in designing intelligent monitoring solutions, leveraging LLMs, agentic workflows, and machine learning techniques for anomaly detection, incident analysis, and operational optimization.</p>
+      <p data-i18n="ins.p1">DATA &amp; AI Tech Lead with 8+ years of experience designing, developing, and deploying production-grade Artificial Intelligence solutions. PhD in Computer Science specializing in Deep Learning, Computer Vision, and Generative AI. NVIDIA Instructor &amp; Platinum Ambassador.</p>
+      <p data-i18n="ins.p2">Experienced in leading multidisciplinary AI teams, architecting enterprise-scale AI systems, and delivering innovative R&amp;D projects from research to production across Generative AI, LLMs, Agentic AI, Computer Vision, MLOps, and AI-driven observability.</p>
+      <p data-i18n="ins.p3">Strong expertise in integrating AI capabilities with Application Performance Monitoring (APM) and Digital Experience Monitoring (DEM) platforms to enhance system reliability, automate root cause analysis, and improve end-user experience. Skilled in designing intelligent monitoring solutions, leveraging LLMs, agentic workflows, and machine learning techniques for anomaly detection, incident analysis, and operational optimization.</p>
       <div class="tags">
-        <span class="tag">DATA &amp; AI Team Lead</span>
-        <span class="tag">PhD, Highest Honors</span>
+        <span class="tag" data-i18n="tag.lead">DATA &amp; AI Team Lead</span>
+        <span class="tag" data-i18n="tag.phd">PhD, Highest Honors</span>
         <span class="tag">NVIDIA Platinum Ambassador</span>
-        <span class="tag">NVIDIA Certified Instructor</span>
+        <span class="tag" data-i18n="tag.inst">NVIDIA Certified Instructor</span>
         <span class="tag">AWS Solutions Architect</span>
-        <span class="tag">English · French · Arabic</span>
+        <span class="tag" data-i18n="tag.langs">English · French · Arabic</span>
       </div>
     </div>
   </div>
 </section>
 
 <section class="rv">
-  <div class="sec-label">The catalog</div>
-  <h2>Six courses, foundations first</h2>
-  <p style="font-size:15px;line-height:1.7;color:var(--muted);max-width:62ch;margin:0 0 30px">Every course stands alone and can be booked on its own. Click any course to open its full day-by-day program.</p>
+  <div class="sec-label" data-i18n="cat.label">The catalog</div>
+  <h2 data-i18n="cat.h2">Six courses, foundations first</h2>
+  <p style="font-size:15px;line-height:1.7;color:var(--muted);max-width:62ch;margin:0 0 30px" data-i18n="cat.lede">Every course stands alone and can be booked on its own. Click any course to open its full day-by-day program.</p>
 
   <div class="filters" id="filters">
-    <button class="on" data-f="all">All courses</button>
-    <button data-f="found">Foundations</button>
-    <button data-f="nvidia">NVIDIA certified</button>
-    <button data-f="work">Workshops</button>
+    <button class="on" data-f="all" data-i18n="f.all">All courses</button>
+    <button data-f="found" data-i18n="f.found">Foundations</button>
+    <button data-f="nvidia" data-i18n="f.nv">NVIDIA certified</button>
+    <button data-f="work" data-i18n="f.work">Workshops</button>
   </div>
 
   <div class="courses">
@@ -208,40 +216,40 @@ footer .c{font-family:var(--mono);font-size:11.5px;line-height:2;color:#9FC4C9;t
     <article class="course" id="p01" data-cat="found">
       <div class="chead">
         <div>
-          <div class="ref">P-01 <span class="pill">Foundation</span> <span class="pill">3 days · 18 h</span></div>
-          <h3>Advanced Python &amp; Machine Learning Foundations</h3>
-          <p>The entry point of the catalog. Builds the Python and machine learning base the five other courses assume.</p>
+          <div class="ref">P-01 <span class="pill" data-i18n="p.found">Foundation</span> <span class="pill" data-i18n="d.3d18">3 days · 18 h</span></div>
+          <h3 data-i18n="c1.t">Advanced Python &amp; Machine Learning Foundations</h3>
+          <p data-i18n="c1.d">The entry point of the catalog. Builds the Python and machine learning base the five other courses assume.</p>
         </div>
         <div class="toggle">+</div>
       </div>
       <div class="cbody"><div><div class="cinner">
         <div class="days">
-          <div class="day"><h4>Day 1 — Advanced Python</h4><ul>
-            <li>Python refresher: types, control flow, functions</li>
-            <li>Comprehensions and generators</li>
-            <li>Decorators and context managers</li>
-            <li>Object-oriented programming for data work</li>
-            <li>Modules, packaging, virtual environments</li>
+          <div class="day"><h4 data-i18n="c1.d1">Day 1 — Advanced Python</h4><ul>
+            <li data-i18n="c1.d1a">Python refresher: types, control flow, functions</li>
+            <li data-i18n="c1.d1b">Comprehensions and generators</li>
+            <li data-i18n="c1.d1c">Decorators and context managers</li>
+            <li data-i18n="c1.d1d">Object-oriented programming for data work</li>
+            <li data-i18n="c1.d1e">Modules, packaging, virtual environments</li>
           </ul></div>
-          <div class="day"><h4>Day 2 — Data manipulation &amp; visualization</h4><ul>
-            <li>NumPy arrays and vectorized computation</li>
-            <li>Pandas: loading, cleaning, joins, group-by</li>
-            <li>Visualization with matplotlib and seaborn</li>
-            <li>Supervised learning: regression and classification</li>
-            <li>Train/validation/test splits, cross-validation</li>
+          <div class="day"><h4 data-i18n="c1.d2">Day 2 — Data manipulation &amp; visualization</h4><ul>
+            <li data-i18n="c1.d2a">NumPy arrays and vectorized computation</li>
+            <li data-i18n="c1.d2b">Pandas: loading, cleaning, joins, group-by</li>
+            <li data-i18n="c1.d2c">Visualization with matplotlib and seaborn</li>
+            <li data-i18n="c1.d2d">Supervised learning: regression and classification</li>
+            <li data-i18n="c1.d2e">Train/validation/test splits, cross-validation</li>
           </ul></div>
-          <div class="day"><h4>Day 3 — Applied machine learning</h4><ul>
-            <li>Scikit-learn pipelines and transformers</li>
-            <li>Hyperparameter search and model selection</li>
-            <li>Evaluation metrics for each problem type</li>
-            <li>Data leakage, overfitting, reproducibility</li>
-            <li>Closing capstone exercise</li>
+          <div class="day"><h4 data-i18n="c1.d3">Day 3 — Applied machine learning</h4><ul>
+            <li data-i18n="c1.d3a">Scikit-learn pipelines and transformers</li>
+            <li data-i18n="c1.d3b">Hyperparameter search and model selection</li>
+            <li data-i18n="c1.d3c">Evaluation metrics for each problem type</li>
+            <li data-i18n="c1.d3d">Data leakage, overfitting, reproducibility</li>
+            <li data-i18n="c1.d3e">Closing capstone exercise</li>
           </ul></div>
         </div>
         <div class="meta">
-          <div><b>Prerequisite</b>basic Python</div>
-          <div><b>Certification</b>certificate of completion</div>
-          <div><b>Technologies</b>NumPy, Pandas, scikit-learn</div>
+          <div><b data-i18n="m.pre">Prerequisite</b><span data-i18n="c1.pre">basic Python</span></div>
+          <div><b data-i18n="m.cert">Certification</b><span data-i18n="m.completion">certificate of completion</span></div>
+          <div><b data-i18n="m.tech">Technologies</b><span>NumPy, Pandas, scikit-learn</span></div>
         </div>
       </div></div></div>
     </article>
@@ -249,29 +257,29 @@ footer .c{font-family:var(--mono);font-size:11.5px;line-height:2;color:#9FC4C9;t
     <article class="course" id="p02" data-cat="found">
       <div class="chead">
         <div>
-          <div class="ref">P-02 <span class="pill">Foundation</span> <span class="pill">2 days · 12 h</span></div>
-          <h3>Artificial Intelligence for Agriculture 4.0</h3>
-          <p>Built on real agricultural data — yield records, satellite imagery, disease image sets — not generic examples.</p>
+          <div class="ref">P-02 <span class="pill" data-i18n="p.found">Foundation</span> <span class="pill" data-i18n="d.2d12">2 days · 12 h</span></div>
+          <h3 data-i18n="c2.t">Artificial Intelligence for Agriculture 4.0</h3>
+          <p data-i18n="c2.d">Built on real agricultural data — yield records, satellite imagery, disease image sets — not generic examples.</p>
         </div>
         <div class="toggle">+</div>
       </div>
       <div class="cbody"><div><div class="cinner">
         <div class="days">
-          <div class="day"><h4>Program</h4><ul>
-            <li>AI applications in agriculture</li>
-            <li>ML workflow: from data to model</li>
-            <li>Exploratory data analysis (EDA)</li>
+          <div class="day"><h4 data-i18n="c2.h1">Program</h4><ul>
+            <li data-i18n="c2.a">AI applications in agriculture</li>
+            <li data-i18n="c2.b">ML workflow: from data to model</li>
+            <li data-i18n="c2.c">Exploratory data analysis (EDA)</li>
           </ul></div>
-          <div class="day"><h4>Program (cont.)</h4><ul>
-            <li>Feature engineering for agriculture
+          <div class="day"><h4 data-i18n="c2.h2">Program (cont.)</h4><ul>
+            <li data-i18n-html="c2.d1">Feature engineering for agriculture
               <small>Vegetation indices: NDVI, SAVI, EVI<br>Temporal features: DOY, GDD, cumulative rainfall</small></li>
-            <li>Applied ML models for classification, clustering and forecasting</li>
+            <li data-i18n="c2.e">Applied ML models for classification, clustering and forecasting</li>
           </ul></div>
         </div>
         <div class="meta">
-          <div><b>Prerequisite</b>basic Python</div>
-          <div><b>Certification</b>certificate of completion</div>
-          <div><b>Audience</b>agronomists, agri-engineers, agritech teams</div>
+          <div><b data-i18n="m.pre">Prerequisite</b><span data-i18n="c1.pre">basic Python</span></div>
+          <div><b data-i18n="m.cert">Certification</b><span data-i18n="m.completion">certificate of completion</span></div>
+          <div><b data-i18n="m.aud">Audience</b><span data-i18n="c2.aud">agronomists, agri-engineers, agritech teams</span></div>
         </div>
       </div></div></div>
     </article>
@@ -279,32 +287,32 @@ footer .c{font-family:var(--mono);font-size:11.5px;line-height:2;color:#9FC4C9;t
     <article class="course" id="p03" data-cat="nvidia">
       <div class="chead">
         <div>
-          <div class="ref">P-03 <span class="pill nv">NVIDIA DLI</span> <span class="pill">2 days · 12 h</span></div>
+          <div class="ref">P-03 <span class="pill nv">NVIDIA DLI</span> <span class="pill" data-i18n="d.2d12">2 days · 12 h</span></div>
           <h3>Fundamentals of Deep Learning</h3>
-          <p>How a network learns, how convolutions see, and how a trained model reaches deployment — for engineers with Python and no prior deep learning background.</p>
+          <p data-i18n="c3.d">How a network learns, how convolutions see, and how a trained model reaches deployment — for engineers with Python and no prior deep learning background.</p>
         </div>
         <div class="toggle">+</div>
       </div>
       <div class="cbody"><div><div class="cinner">
         <div class="days">
-          <div class="day"><h4>Day 1</h4><ul>
+          <div class="day"><h4 data-i18n="day1">Day 1</h4><ul>
             <li>Introduction to Deep Learning</li>
             <li>The mechanics of a Neural Network</li>
             <li>Convolutional Neural Networks</li>
             <li>Image Classifier</li>
           </ul></div>
-          <div class="day"><h4>Day 2</h4><ul>
+          <div class="day"><h4 data-i18n="day2">Day 2</h4><ul>
             <li>Data Augmentation &amp; Deployment</li>
             <li>Pre-trained Models &amp; Transfer Learning</li>
             <li>Advanced Architectures</li>
-            <li>Wrap-up &amp; Assessment</li>
+            <li data-i18n="wrap">Wrap-up &amp; Assessment</li>
           </ul></div>
         </div>
         <div class="meta">
-          <div><b>Prerequisite</b>Python</div>
-          <div><b>Certification</b>official NVIDIA DLI certificate</div>
-          <div><b>Technologies</b>PyTorch, Pandas</div>
-          <div><b>Reference</b><a href="https://learn.nvidia.com/courses/course-detail?course_id=course-v1%3ADLI+C-FX-01+V3" target="_blank" rel="noopener">Official NVIDIA course page</a></div>
+          <div><b data-i18n="m.pre">Prerequisite</b><span>Python</span></div>
+          <div><b data-i18n="m.cert">Certification</b><span data-i18n="m.dli">official NVIDIA DLI certificate</span></div>
+          <div><b data-i18n="m.tech">Technologies</b><span>PyTorch, Pandas</span></div>
+          <div><b data-i18n="m.ref">Reference</b><a href="https://learn.nvidia.com/courses/course-detail?course_id=course-v1%3ADLI+C-FX-01+V3" target="_blank" rel="noopener" data-i18n="m.page">Official NVIDIA course page</a></div>
         </div>
       </div></div></div>
     </article>
@@ -312,31 +320,31 @@ footer .c{font-family:var(--mono);font-size:11.5px;line-height:2;color:#9FC4C9;t
     <article class="course" id="p04" data-cat="nvidia">
       <div class="chead">
         <div>
-          <div class="ref">P-04 <span class="pill nv">NVIDIA DLI</span> <span class="pill">2 days · 12 h</span></div>
+          <div class="ref">P-04 <span class="pill nv">NVIDIA DLI</span> <span class="pill" data-i18n="d.2d12">2 days · 12 h</span></div>
           <h3>Building Transformer-Based NLP Applications</h3>
-          <p>The transformer end to end — architecture, pre-training, fine-tuning, and the optimization work that makes a language model affordable to serve.</p>
+          <p data-i18n="c4.d">The transformer end to end — architecture, pre-training, fine-tuning, and the optimization work that makes a language model affordable to serve.</p>
         </div>
         <div class="toggle">+</div>
       </div>
       <div class="cbody"><div><div class="cinner">
         <div class="days">
-          <div class="day"><h4>Day 1</h4><ul>
+          <div class="day"><h4 data-i18n="day1">Day 1</h4><ul>
             <li>Machine Learning in NLP (Text Representation, RNNs)</li>
             <li>Transformer Architecture &amp; Training a BERT model</li>
             <li>Self-Supervision &amp; Finetuning using NeMo</li>
             <li>Prompt Engineering &amp; Prompt Learning</li>
           </ul></div>
-          <div class="day"><h4>Day 2</h4><ul>
+          <div class="day"><h4 data-i18n="day2">Day 2</h4><ul>
             <li>Parameter Efficient Fine-Tuning (PEFT) &amp; LoRA</li>
             <li>Post-Training Optimization, Product Quantization &amp; Knowledge Distillation</li>
             <li>Fine-tuned LLMs · Model Code Efficiency, Parallelism &amp; Triton Inference Server</li>
-            <li>Wrap-up &amp; Assessment</li>
+            <li data-i18n="wrap">Wrap-up &amp; Assessment</li>
           </ul></div>
         </div>
         <div class="meta">
-          <div><b>Prerequisite</b>P-03 or equivalent, PyTorch</div>
-          <div><b>Certification</b>official NVIDIA DLI certificate</div>
-          <div><b>Reference</b><a href="https://learn.nvidia.com/courses/course-detail?course_id=course-v1%3ADLI+C-FX-03+V3" target="_blank" rel="noopener">Official NVIDIA course page</a></div>
+          <div><b data-i18n="m.pre">Prerequisite</b><span data-i18n="c45.pre">P-03 or equivalent, PyTorch</span></div>
+          <div><b data-i18n="m.cert">Certification</b><span data-i18n="m.dli">official NVIDIA DLI certificate</span></div>
+          <div><b data-i18n="m.ref">Reference</b><a href="https://learn.nvidia.com/courses/course-detail?course_id=course-v1%3ADLI+C-FX-03+V3" target="_blank" rel="noopener" data-i18n="m.page">Official NVIDIA course page</a></div>
         </div>
       </div></div></div>
     </article>
@@ -344,31 +352,31 @@ footer .c{font-family:var(--mono);font-size:11.5px;line-height:2;color:#9FC4C9;t
     <article class="course" id="p05" data-cat="nvidia">
       <div class="chead">
         <div>
-          <div class="ref">P-05 <span class="pill nv">NVIDIA DLI</span> <span class="pill">2 days · 12 h</span></div>
+          <div class="ref">P-05 <span class="pill nv">NVIDIA DLI</span> <span class="pill" data-i18n="d.2d12">2 days · 12 h</span></div>
           <h3>Generative AI with Diffusion Models</h3>
-          <p>Generative models built from the ground up — first adversarial, then diffusion — finishing with a working text-to-image pipeline participants wrote themselves.</p>
+          <p data-i18n="c5.d">Generative models built from the ground up — first adversarial, then diffusion — finishing with a working text-to-image pipeline participants wrote themselves.</p>
         </div>
         <div class="toggle">+</div>
       </div>
       <div class="cbody"><div><div class="cinner">
         <div class="days">
-          <div class="day"><h4>Day 1</h4><ul>
+          <div class="day"><h4 data-i18n="day1">Day 1</h4><ul>
             <li>Understanding Generative AI, GANs &amp; the U-Net architecture</li>
             <li>Denoising Diffusion Probabilistic Models</li>
             <li>Optimizing Neural Networks for Generative AI</li>
             <li>Development of an Img2Img generation model</li>
           </ul></div>
-          <div class="day"><h4>Day 2</h4><ul>
+          <div class="day"><h4 data-i18n="day2">Day 2</h4><ul>
             <li>Classifier-Free Diffusion Guidance</li>
             <li>Contrastive Language–Image Pretraining (CLIP)</li>
             <li>Development of a Text2Img generation model</li>
-            <li>Wrap-up &amp; Assessment</li>
+            <li data-i18n="wrap">Wrap-up &amp; Assessment</li>
           </ul></div>
         </div>
         <div class="meta">
-          <div><b>Prerequisite</b>P-03 or equivalent, PyTorch</div>
-          <div><b>Certification</b>official NVIDIA DLI certificate</div>
-          <div><b>Reference</b><a href="https://learn.nvidia.com/courses/course-detail?course_id=course-v1%3ADLI+S-FX-14+V1" target="_blank" rel="noopener">Official NVIDIA course page</a></div>
+          <div><b data-i18n="m.pre">Prerequisite</b><span data-i18n="c45.pre">P-03 or equivalent, PyTorch</span></div>
+          <div><b data-i18n="m.cert">Certification</b><span data-i18n="m.dli">official NVIDIA DLI certificate</span></div>
+          <div><b data-i18n="m.ref">Reference</b><a href="https://learn.nvidia.com/courses/course-detail?course_id=course-v1%3ADLI+S-FX-14+V1" target="_blank" rel="noopener" data-i18n="m.page">Official NVIDIA course page</a></div>
         </div>
       </div></div></div>
     </article>
@@ -376,42 +384,42 @@ footer .c{font-family:var(--mono);font-size:11.5px;line-height:2;color:#9FC4C9;t
     <article class="course" id="p06" data-cat="work">
       <div class="chead">
         <div>
-          <div class="ref">P-06 <span class="pill">Workshop</span> <span class="pill">3 days · 21 h</span></div>
+          <div class="ref">P-06 <span class="pill" data-i18n="p.work">Workshop</span> <span class="pill" data-i18n="d.3d21">3 days · 21 h</span></div>
           <h3>Agentic Development with Claude Code &amp; GitHub Copilot</h3>
-          <p>Moves a team from ad-hoc prompting to an engineered, observable AI-augmented SDLC — six labs on real repositories.</p>
+          <p data-i18n="c6.d">Moves a team from ad-hoc prompting to an engineered, observable AI-augmented SDLC — six labs on real repositories.</p>
         </div>
         <div class="toggle">+</div>
       </div>
       <div class="cbody"><div><div class="cinner">
         <div class="days">
-          <div class="day"><h4>Day 1 — Foundations and integration</h4><ul>
-            <li>LLM landscape: Claude, GPT-4o, Gemini, Copilot</li>
-            <li>Context engineering versus prompt engineering</li>
-            <li>The CDLC loop — define, structure, iterate, validate, capitalize, deploy</li>
-            <li>Memory files (CLAUDE.md) and instruction files (SKILL.md)</li>
-            <li>Lab 1 &amp; 2 — a working agentic environment and your first project context
+          <div class="day"><h4 data-i18n="c6.h1">Day 1 — Foundations and integration</h4><ul>
+            <li data-i18n="c6.a">LLM landscape: Claude, GPT-4o, Gemini, Copilot</li>
+            <li data-i18n="c6.b">Context engineering versus prompt engineering</li>
+            <li data-i18n="c6.c">The CDLC loop — define, structure, iterate, validate, capitalize, deploy</li>
+            <li data-i18n="c6.d1">Memory files (CLAUDE.md) and instruction files (SKILL.md)</li>
+            <li data-i18n-html="c6.e">Lab 1 &amp; 2 — a working agentic environment and your first project context
               <small>Deliverable: an operational environment tested against a first agentic prompt</small></li>
           </ul></div>
-          <div class="day"><h4>Day 2 — The AI-augmented SDLC</h4><ul>
-            <li>MCP: connecting agents to Jira, GitHub, GCP and databases</li>
-            <li>Hooks — pre-commit, post-test, on-error self-correction</li>
-            <li>Forking conversations for competing implementations</li>
-            <li>Advisor and Plan modes for full supervision</li>
-            <li>Lab 3 — full SDLC workflow, from ticket to Cloud Run
+          <div class="day"><h4 data-i18n="c6.h2">Day 2 — The AI-augmented SDLC</h4><ul>
+            <li data-i18n="c6.f">MCP: connecting agents to Jira, GitHub, GCP and databases</li>
+            <li data-i18n="c6.g">Hooks — pre-commit, post-test, on-error self-correction</li>
+            <li data-i18n="c6.h">Forking conversations for competing implementations</li>
+            <li data-i18n="c6.i">Advisor and Plan modes for full supervision</li>
+            <li data-i18n-html="c6.j">Lab 3 — full SDLC workflow, from ticket to Cloud Run
               <small>Deliverable: a full-stack app with a working CI/CD pipeline</small></li>
           </ul></div>
-          <div class="day" style="grid-column:1/-1"><h4>Day 3 — Orchestration &amp; multi-agent systems</h4><ul>
-            <li>Manual orchestration — plan, validate, execute — for critical work</li>
-            <li>Automatic orchestration — a lead agent delegating to sub-agents</li>
-            <li>Lab 4 — audits with AI agents: architecture, code quality, security</li>
-            <li>Lab 5 — multiple agents with Git worktrees and AI-assisted merge</li>
-            <li>Lab 6 — agent observability: structured logs, traceability, token/duration metrics, anomaly alerts</li>
+          <div class="day" style="grid-column:1/-1"><h4 data-i18n="c6.h3">Day 3 — Orchestration &amp; multi-agent systems</h4><ul>
+            <li data-i18n="c6.k">Manual orchestration — plan, validate, execute — for critical work</li>
+            <li data-i18n="c6.l">Automatic orchestration — a lead agent delegating to sub-agents</li>
+            <li data-i18n="c6.m">Lab 4 — audits with AI agents: architecture, code quality, security</li>
+            <li data-i18n="c6.n">Lab 5 — multiple agents with Git worktrees and AI-assisted merge</li>
+            <li data-i18n="c6.o">Lab 6 — agent observability: structured logs, traceability, token/duration metrics, anomaly alerts</li>
           </ul></div>
         </div>
         <div class="meta">
-          <div><b>Prerequisite</b>Git, CI/CD basics, one backend language</div>
-          <div><b>Certification</b>certificate of completion</div>
-          <div><b>Tooling</b>Claude Code, GitHub Copilot, MCP</div>
+          <div><b data-i18n="m.pre">Prerequisite</b><span data-i18n="c6.pre">Git, CI/CD basics, one backend language</span></div>
+          <div><b data-i18n="m.cert">Certification</b><span data-i18n="m.completion">certificate of completion</span></div>
+          <div><b data-i18n="m.tool">Tooling</b><span>Claude Code, GitHub Copilot, MCP</span></div>
         </div>
       </div></div></div>
     </article>
@@ -420,12 +428,19 @@ footer .c{font-family:var(--mono);font-size:11.5px;line-height:2;color:#9FC4C9;t
 </section>
 
 <section id="delivery" class="rv">
-  <div class="sec-label">Practical information</div>
-  <h2>Delivery &amp; logistics</h2>
+  <div class="sec-label" data-i18n="del.label">Practical information</div>
+  <h2 data-i18n="del.h2">Delivery &amp; logistics</h2>
   <div class="deliv" style="margin-top:32px">
-    <div><h4>Formats</h4><ul><li>On-site at your premises</li><li>Virtual instructor-led, live</li><li>Hybrid</li></ul></div>
-    <div><h4>Languages</h4><p>English, French or Arabic. Materials supplied in English by default, French on request.</p></div>
-    <div><h4>Materials</h4><ul><li>Full slide decks</li><li>Annotated code and lab repositories</li><li>Datasets used in session</li><li>Certificates on completion</li></ul></div>
+    <div><h4 data-i18n="del.f">Formats</h4><ul>
+      <li data-i18n="del.f1">On-site at your premises</li>
+      <li data-i18n="del.f2">Virtual instructor-led, live</li>
+      <li data-i18n="del.f3">Hybrid</li></ul></div>
+    <div><h4 data-i18n="del.l">Languages</h4><p data-i18n="del.lp">English, French or Arabic. Materials supplied in English by default, French on request.</p></div>
+    <div><h4 data-i18n="del.m">Materials</h4><ul>
+      <li data-i18n="del.m1">Full slide decks</li>
+      <li data-i18n="del.m2">Annotated code and lab repositories</li>
+      <li data-i18n="del.m3">Datasets used in session</li>
+      <li data-i18n="del.m4">Certificates on completion</li></ul></div>
   </div>
 </section>
 
@@ -434,12 +449,17 @@ footer .c{font-family:var(--mono);font-size:11.5px;line-height:2;color:#9FC4C9;t
 <footer id="book">
   <div class="inner">
     <div>
-      <h2>Book a session</h2>
-      <a class="mail" href="mailto:hfkih@itrsgroup.com">hfkih@itrsgroup.com</a>
+      <h2 data-i18n="foot.h2">Book a session</h2>
+      <button class="mailbtn" id="mailbtn">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 7 10 6 10-6"/></svg>
+        <span data-i18n="foot.btn">Show email address</span>
+      </button>
+      <p class="mailnote" data-i18n="foot.note">Click to reveal — opens your mail app</p>
+      <div class="visits" id="visitsBox" style="display:none"><span data-i18n="foot.visits">Visitors</span><b id="visits">—</b></div>
     </div>
     <div class="c">
       +216 23 03 80 55<br>
-      Tunis, Tunisia<br>
+      <span data-i18n="foot.city">Tunis, Tunisia</span><br>
       <a href="https://linkedin.com/in/hedi-fkih" target="_blank" rel="noopener">linkedin.com/in/hedi-fkih</a><br>
       <a href="https://github.com/HediFKIH" target="_blank" rel="noopener">github.com/HediFKIH</a>
     </div>
@@ -447,36 +467,157 @@ footer .c{font-family:var(--mono);font-size:11.5px;line-height:2;color:#9FC4C9;t
 </footer>
 
 <script>
-// scroll progress
+/* ---------- French dictionary (technical terms kept in English by convention) ---------- */
+const FR = {
+ 'nav.instructor':'Formateur','nav.delivery':'Modalités','nav.cta':'Réserver une session',
+ 'hero.eyebrow':'Formation animée par un expert · Édition 2026',
+ 'hero.h1':'Intelligence <em>Artificielle</em> Appliquée',
+ 'hero.lede':"Six formations indépendantes, ordonnées des fondamentaux à la spécialisation : Python et machine learning, IA appliquée à l'agriculture, trois cours certifiants NVIDIA en deep learning et IA générative, et développement agentique. Animées par un instructeur certifié NVIDIA qui conçoit ces systèmes en production.",
+ 'hero.s1':'Formations indépendantes','hero.s2':'Certificats NVIDIA','hero.s3':"Ans d'IA en production",
+ 'ins.label':'Le formateur','ins.h2':'Qui anime ces formations',
+ 'ins.drop':'Déposez votre photo ici<br>ou cliquez pour choisir',
+ 'ins.p1':"DATA &amp; AI Tech Lead avec plus de 8 ans d'expérience dans la conception, le développement et le déploiement de solutions d'Intelligence Artificielle en production. Docteur en Informatique, spécialisé en Deep Learning, Computer Vision et IA générative. Instructeur NVIDIA &amp; Platinum Ambassador.",
+ 'ins.p2':"Expérimenté dans l'encadrement d'équipes IA pluridisciplinaires, l'architecture de systèmes d'IA à l'échelle de l'entreprise et la conduite de projets de R&amp;D innovants, de la recherche à la production : IA générative, LLM, IA agentique, Computer Vision, MLOps et observabilité pilotée par l'IA.",
+ 'ins.p3':"Forte expertise dans l'intégration de capacités d'IA aux plateformes d'Application Performance Monitoring (APM) et de Digital Experience Monitoring (DEM), afin de renforcer la fiabilité des systèmes, d'automatiser l'analyse de cause racine et d'améliorer l'expérience utilisateur. Compétent dans la conception de solutions de supervision intelligentes s'appuyant sur les LLM, les workflows agentiques et le machine learning pour la détection d'anomalies, l'analyse d'incidents et l'optimisation opérationnelle.",
+ 'tag.lead':'DATA &amp; AI Team Lead','tag.phd':'Doctorat, mention très honorable','tag.inst':'Instructeur certifié NVIDIA','tag.langs':'Anglais · Français · Arabe',
+ 'cat.label':'Le catalogue','cat.h2':'Six formations, les fondamentaux d\'abord',
+ 'cat.lede':'Chaque formation est indépendante et peut être réservée seule. Cliquez sur une formation pour afficher son programme jour par jour.',
+ 'f.all':'Toutes','f.found':'Fondamentaux','f.nv':'Certifiées NVIDIA','f.work':'Ateliers',
+ 'p.found':'Fondamentale','p.work':'Atelier','d.3d18':'3 jours · 18 h','d.2d12':'2 jours · 12 h','d.3d21':'3 jours · 21 h',
+ 'day1':'Jour 1','day2':'Jour 2','wrap':'Synthèse &amp; évaluation',
+ 'm.pre':'Prérequis','m.cert':'Certification','m.tech':'Technologies','m.aud':'Public','m.ref':'Référence','m.tool':'Outillage',
+ 'm.completion':'attestation de fin de formation','m.dli':'certificat officiel NVIDIA DLI','m.page':'Page officielle du cours NVIDIA',
+ 'c1.t':'Python avancé &amp; fondamentaux du Machine Learning',
+ 'c1.d':"Le point d'entrée du catalogue. Construit la base Python et machine learning que supposent les cinq autres formations.",
+ 'c1.pre':'bases de Python',
+ 'c1.d1':'Jour 1 — Python avancé',
+ 'c1.d1a':'Rappels Python : types, structures de contrôle, fonctions','c1.d1b':'Compréhensions et générateurs',
+ 'c1.d1c':'Décorateurs et gestionnaires de contexte','c1.d1d':'Programmation orientée objet appliquée aux données',
+ 'c1.d1e':'Modules, packaging, environnements virtuels',
+ 'c1.d2':'Jour 2 — Manipulation et visualisation de données',
+ 'c1.d2a':'Tableaux NumPy et calcul vectorisé','c1.d2b':'Pandas : chargement, nettoyage, jointures, group-by',
+ 'c1.d2c':'Visualisation avec matplotlib et seaborn','c1.d2d':'Apprentissage supervisé : régression et classification',
+ 'c1.d2e':'Découpage train/validation/test, validation croisée',
+ 'c1.d3':'Jour 3 — Machine learning appliqué',
+ 'c1.d3a':'Pipelines et transformers scikit-learn','c1.d3b':'Recherche d\'hyperparamètres et sélection de modèle',
+ 'c1.d3c':'Métriques d\'évaluation adaptées à chaque problème','c1.d3d':'Fuite de données, sur-apprentissage, reproductibilité',
+ 'c1.d3e':'Exercice de synthèse final',
+ 'c2.t':"Intelligence Artificielle appliquée à l'Agriculture 4.0",
+ 'c2.d':"Construite sur des données agricoles réelles — relevés de rendement, imagerie satellitaire, jeux d'images de maladies — et non sur des exemples génériques.",
+ 'c2.h1':'Programme','c2.h2':'Programme (suite)',
+ 'c2.a':"Applications de l'IA en agriculture",'c2.b':'Workflow ML : de la donnée au modèle','c2.c':'Analyse exploratoire des données (EDA)',
+ 'c2.d1':"Feature engineering pour l'agriculture<small>Indices de végétation : NDVI, SAVI, EVI<br>Features temporelles : DOY, GDD, cumul de précipitations</small>",
+ 'c2.e':'Modèles ML appliqués : classification, clustering et prévision',
+ 'c2.aud':'agronomes, ingénieurs agricoles, équipes agritech',
+ 'c3.d':"Comment un réseau apprend, comment les convolutions « voient » et comment un modèle entraîné arrive en production — pour des ingénieurs maîtrisant Python, sans expérience préalable en deep learning.",
+ 'c4.d':"Le transformer de bout en bout — architecture, pré-entraînement, fine-tuning et travail d'optimisation qui rend un modèle de langage économiquement servable.",
+ 'c45.pre':'P-03 ou équivalent, PyTorch',
+ 'c5.d':"Des modèles génératifs construits de zéro — d'abord adversariaux, puis par diffusion — jusqu'à un pipeline text-to-image fonctionnel écrit par les participants.",
+ 'c6.d':"Fait passer une équipe du prompting improvisé à un SDLC augmenté par l'IA, industrialisé et observable — six labs sur de vrais dépôts.",
+ 'c6.h1':'Jour 1 — Fondations et intégration',
+ 'c6.a':'Panorama des LLM : Claude, GPT-4o, Gemini, Copilot',
+ 'c6.b':'Context engineering versus prompt engineering',
+ 'c6.c':'La boucle CDLC — définir, structurer, itérer, valider, capitaliser, déployer',
+ 'c6.d1':"Fichiers de mémoire (CLAUDE.md) et fichiers d'instructions (SKILL.md)",
+ 'c6.e':"Labs 1 &amp; 2 — un environnement agentique opérationnel et votre premier contexte projet<small>Livrable : un environnement opérationnel validé par un premier prompt agentique</small>",
+ 'c6.h2':"Jour 2 — Le SDLC augmenté par l'IA",
+ 'c6.f':'MCP : connecter les agents à Jira, GitHub, GCP et aux bases de données',
+ 'c6.g':'Hooks — pre-commit, post-test, auto-correction sur erreur',
+ 'c6.h':'Forker les conversations pour comparer plusieurs implémentations',
+ 'c6.i':'Modes Advisor et Plan pour une supervision complète',
+ 'c6.j':"Lab 3 — workflow SDLC complet, du ticket au déploiement Cloud Run<small>Livrable : une application full-stack avec pipeline CI/CD fonctionnel</small>",
+ 'c6.h3':'Jour 3 — Orchestration et systèmes multi-agents',
+ 'c6.k':'Orchestration manuelle — planifier, valider, exécuter — pour les travaux critiques',
+ 'c6.l':'Orchestration automatique — un agent principal déléguant à des sous-agents',
+ 'c6.m':"Lab 4 — audits avec des agents IA : architecture, qualité de code, sécurité",
+ 'c6.n':'Lab 5 — plusieurs agents avec Git worktrees et merge assisté par IA',
+ 'c6.o':"Lab 6 — observabilité des agents : logs structurés, traçabilité, métriques tokens/durée, alertes d'anomalie",
+ 'c6.pre':'Git, bases de CI/CD, un langage back-end',
+ 'del.label':'Informations pratiques','del.h2':'Modalités &amp; logistique',
+ 'del.f':'Formats','del.f1':'En présentiel dans vos locaux','del.f2':'À distance, en direct avec le formateur','del.f3':'Hybride',
+ 'del.l':'Langues','del.lp':'Anglais, français ou arabe. Supports fournis en anglais par défaut, en français sur demande.',
+ 'del.m':'Supports','del.m1':'Supports de présentation complets','del.m2':'Code annoté et dépôts des labs',
+ 'del.m3':'Jeux de données utilisés en session','del.m4':'Attestations en fin de formation',
+ 'foot.h2':'Réserver une session','foot.btn':"Afficher l'adresse e-mail",
+ 'foot.note':'Cliquez pour révéler — ouvre votre messagerie','foot.visits':'Visiteurs','foot.city':'Tunis, Tunisie'
+};
+
+/* ---------- i18n ---------- */
+const EN = {};
+document.querySelectorAll('[data-i18n],[data-i18n-html]').forEach(el => {
+  const k = el.dataset.i18n || el.dataset.i18nHtml;
+  if (!(k in EN)) EN[k] = el.innerHTML;
+});
+function setLang(l){
+  const dict = l === 'fr' ? FR : EN;
+  document.querySelectorAll('[data-i18n],[data-i18n-html]').forEach(el => {
+    const k = el.dataset.i18n || el.dataset.i18nHtml;
+    const v = (l === 'fr' ? (FR[k] ?? EN[k]) : EN[k]);
+    if (v != null) el.innerHTML = v;
+  });
+  document.documentElement.lang = l;
+  document.querySelectorAll('#lang button').forEach(b => b.classList.toggle('on', b.dataset.l === l));
+  try { localStorage.setItem('hf_lang', l); } catch(e){}
+}
+document.getElementById('lang').addEventListener('click', e => {
+  const b = e.target.closest('button'); if (b) setLang(b.dataset.l);
+});
+try { const saved = localStorage.getItem('hf_lang'); if (saved === 'fr') setLang('fr'); } catch(e){}
+
+/* ---------- protected email ---------- */
+const U = ['HEDI','FEKI','doc'], D = ['enetcom','usf','tn'];
+document.getElementById('mailbtn').addEventListener('click', function(){
+  const addr = U.join('.') + String.fromCharCode(64) + D.join('.');
+  const span = this.querySelector('span');
+  if (span.dataset.shown) { location.href = 'mai' + 'lto:' + addr; return; }
+  span.textContent = addr;
+  span.dataset.shown = '1';
+  const note = document.querySelector('.mailnote');
+  if (note) note.textContent = document.documentElement.lang === 'fr' ? 'Cliquez à nouveau pour écrire' : 'Click again to compose';
+});
+
+/* ---------- visitor counter ---------- */
+(async () => {
+  const el = document.getElementById('visits');
+  let owner = false;
+  try {
+    if (location.hash === '#stats' || /[?&]stats=1/.test(location.search)) { localStorage.setItem('hf_owner','1'); owner = true; }
+    if (localStorage.getItem('hf_owner') === '1') owner = true;
+  } catch(e){}
+  if (owner) document.getElementById('visitsBox').style.display = 'flex';
+  const fmt = n => n.toLocaleString();
+  try {
+    const r = await fetch('https://api.counterapi.dev/v1/hedifkih-catalog/visits/up');
+    if (r.ok) { const j = await r.json(); if (j && (j.count ?? j.value) != null) { el.textContent = fmt(j.count ?? j.value); return; } }
+    throw 0;
+  } catch(e) {
+    let n = 0; try { n = parseInt(localStorage.getItem('hf_visits') || '0', 10) + 1; localStorage.setItem('hf_visits', n); } catch(_) { n = 1; }
+    el.textContent = fmt(n);
+  }
+})();
+
+/* ---------- chrome ---------- */
 const bar = document.getElementById('bar');
 addEventListener('scroll', () => {
   const h = document.documentElement;
   bar.style.width = (h.scrollTop / (h.scrollHeight - h.clientHeight) * 100) + '%';
 }, {passive:true});
 
-// mobile menu
 const links = document.getElementById('links');
 document.getElementById('burger').onclick = () => links.classList.toggle('open');
 links.addEventListener('click', e => { if (e.target.tagName === 'A') links.classList.remove('open'); });
 
-// scroll spy
 const navLinks = [...links.querySelectorAll('a')];
 const targets = navLinks.map(a => document.querySelector(a.getAttribute('href'))).filter(Boolean);
-const spy = new IntersectionObserver(es => {
-  es.forEach(e => {
-    if (!e.isIntersecting) return;
-    navLinks.forEach(a => a.classList.toggle('on', a.getAttribute('href') === '#' + e.target.id));
-  });
-}, {rootMargin:'-45% 0px -50% 0px'});
+const spy = new IntersectionObserver(es => es.forEach(e => {
+  if (!e.isIntersecting) return;
+  navLinks.forEach(a => a.classList.toggle('on', a.getAttribute('href') === '#' + e.target.id));
+}), {rootMargin:'-45% 0px -50% 0px'});
 targets.forEach(t => spy.observe(t));
 
-// accordions
-document.querySelectorAll('.course').forEach(c => {
-  c.querySelector('.chead').addEventListener('click', () => c.classList.toggle('open'));
-});
+document.querySelectorAll('.course').forEach(c => c.querySelector('.chead').addEventListener('click', () => c.classList.toggle('open')));
 document.getElementById('p01').classList.add('open');
 
-// filters
 document.getElementById('filters').addEventListener('click', e => {
   const b = e.target.closest('button'); if (!b) return;
   document.querySelectorAll('#filters button').forEach(x => x.classList.toggle('on', x === b));
@@ -484,15 +625,13 @@ document.getElementById('filters').addEventListener('click', e => {
   document.querySelectorAll('.course').forEach(c => c.classList.toggle('hide', f !== 'all' && c.dataset.cat !== f));
 });
 
-// reveal
 const rv = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); rv.unobserve(e.target); } }), {threshold:.1});
 document.querySelectorAll('.rv').forEach(el => rv.observe(el));
 
-// photo upload (persists in this browser)
-const photo = document.getElementById('photo'), file = document.getElementById('file');
-const KEY = 'hf_instructor_photo';
-function setPhoto(src){ photo.innerHTML = '<img alt="Hedi Fkih">'; photo.querySelector('img').src = src; photo.style.border='1px solid var(--line)'; }
-try { const saved = localStorage.getItem(KEY); if (saved) setPhoto(saved); } catch(e){}
+/* ---------- photo ---------- */
+const photo = document.getElementById('photo'), file = document.getElementById('file'), KEY = 'hf_instructor_photo';
+function setPhoto(src){ photo.innerHTML = '<img alt="Hedi Fkih">'; photo.querySelector('img').src = src; photo.style.border = '1px solid var(--line)'; }
+try { const s = localStorage.getItem(KEY); if (s) setPhoto(s); } catch(e){}
 function read(f){ if (!f || !f.type.startsWith('image/')) return; const r = new FileReader();
   r.onload = () => { setPhoto(r.result); try { localStorage.setItem(KEY, r.result); } catch(e){} }; r.readAsDataURL(f); }
 photo.addEventListener('click', () => file.click());
