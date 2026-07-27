@@ -63,11 +63,8 @@ section{padding:clamp(56px,9vh,104px) 0;border-bottom:1px solid var(--line)}
 h2{font-size:clamp(26px,3.4vw,40px);font-weight:800;letter-spacing:-.03em;line-height:1.08;margin:0 0 14px}
 
 .bio{display:grid;grid-template-columns:270px 1fr;gap:clamp(28px,4vw,56px);align-items:start}
-.photo{position:relative;aspect-ratio:4/5;border-radius:6px;overflow:hidden;background:var(--paper2);
-  border:1px dashed rgba(10,20,22,.28);display:flex;align-items:center;justify-content:center;cursor:pointer;transition:.2s}
-.photo:hover,.photo.drag{border-color:var(--petrol);background:#E9EFEE}
+.photo{position:relative;aspect-ratio:4/5;border-radius:6px;overflow:hidden;background:var(--paper2);border:1px solid var(--line)}
 .photo img{width:100%;height:100%;object-fit:cover;display:block}
-.photo .hint{font-family:var(--mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);text-align:center;padding:0 20px;line-height:1.7}
 .bio p{font-size:15px;line-height:1.7;margin:0 0 14px;color:#243033;text-align:justify;hyphens:auto}
 .tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:20px}
 .tag{font-family:var(--mono);font-size:10.5px;letter-spacing:.04em;padding:6px 12px;border-radius:99px;background:var(--paper2);color:var(--petrol);border:1px solid var(--line)}
@@ -113,7 +110,7 @@ h2{font-size:clamp(26px,3.4vw,40px);font-weight:800;letter-spacing:-.03em;line-h
 footer{background:var(--deep);color:#EAF1F0;padding:clamp(56px,8vh,88px) clamp(20px,5vw,72px)}
 footer .inner{max-width:1180px;margin:0 auto;display:grid;grid-template-columns:1fr auto;gap:40px;align-items:end}
 footer h2{color:#fff;margin:0 0 16px}
-.mailbtn{display:inline-flex;align-items:center;gap:12px;font-family:var(--sans);font-weight:700;font-size:clamp(16px,1.8vw,20px);
+.mailbtn{display:inline-flex;align-items:center;gap:12px;text-align:left;line-height:1.5;font-family:var(--sans);font-weight:700;font-size:clamp(16px,1.8vw,20px);
   color:var(--deep);background:var(--mint);border:0;border-radius:99px;padding:16px 26px;cursor:pointer;transition:.2s}
 .mailbtn:hover{background:#fff;transform:translateY(-2px)}
 .mailbtn svg{width:18px;height:18px}
@@ -154,7 +151,7 @@ footer .c a:hover{color:var(--mint)}
     <div class="lang" id="lang">
       <button data-l="en" class="on">EN</button><button data-l="fr">FR</button>
     </div>
-    <a class="cta" href="#book" data-i18n="nav.cta">Book a session</a>
+    <a class="cta" href="#book" data-i18n="nav.cta">For more information</a>
     <button class="burger" id="burger" aria-label="Menu">☰</button>
   </div>
 </nav>
@@ -179,9 +176,7 @@ footer .c a:hover{color:var(--mint)}
   <div class="sec-label" data-i18n="ins.label">The instructor</div>
   <h2 data-i18n="ins.h2">Who teaches these programs</h2>
   <div class="bio" style="margin-top:32px">
-    <div class="photo" id="photo" tabindex="0" role="button" aria-label="Add instructor photo">
-      <span class="hint" data-i18n-html="ins.drop">Drop your photo here<br>or click to choose</span>
-      <input type="file" id="file" accept="image/*" hidden>
+    <div class="photo"><img src="hedi.png" alt="Hedi Fkih, PhD"></div>
     </div>
     <div>
       <p data-i18n="ins.p1">DATA &amp; AI Tech Lead with 8+ years of experience designing, developing, and deploying production-grade Artificial Intelligence solutions. PhD in Computer Science specializing in Deep Learning, Computer Vision, and Generative AI. NVIDIA Instructor &amp; Platinum Ambassador.</p>
@@ -449,16 +444,15 @@ footer .c a:hover{color:var(--mint)}
 <footer id="book">
   <div class="inner">
     <div>
-      <h2 data-i18n="foot.h2">Book a session</h2>
+      <h2 data-i18n="foot.h2">For more information</h2>
       <button class="mailbtn" id="mailbtn">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 7 10 6 10-6"/></svg>
-        <span data-i18n="foot.btn">Show email address</span>
+        <span data-i18n="foot.btn">Show contact details</span>
       </button>
-      <p class="mailnote" data-i18n="foot.note">Click to reveal — opens your mail app</p>
+      <p class="mailnote" data-i18n="foot.note">Click to reveal contact details</p>
       <div class="visits" id="visitsBox" style="display:none"><span data-i18n="foot.visits">Visitors</span><b id="visits">—</b></div>
     </div>
     <div class="c">
-      +216 23 03 80 55<br>
       <span data-i18n="foot.city">Tunis, Tunisia</span><br>
       <a href="https://linkedin.com/in/hedi-fkih" target="_blank" rel="noopener">linkedin.com/in/hedi-fkih</a><br>
       <a href="https://github.com/HediFKIH" target="_blank" rel="noopener">github.com/HediFKIH</a>
@@ -469,13 +463,12 @@ footer .c a:hover{color:var(--mint)}
 <script>
 /* ---------- French dictionary (technical terms kept in English by convention) ---------- */
 const FR = {
- 'nav.instructor':'Formateur','nav.delivery':'Modalités','nav.cta':'Réserver une session',
+ 'nav.instructor':'Formateur','nav.delivery':'Modalités','nav.cta':'Pour plus d\'informations',
  'hero.eyebrow':'Formation animée par un expert · Édition 2026',
  'hero.h1':'Intelligence <em>Artificielle</em> Appliquée',
  'hero.lede':"Six formations indépendantes, ordonnées des fondamentaux à la spécialisation : Python et machine learning, IA appliquée à l'agriculture, trois cours certifiants NVIDIA en deep learning et IA générative, et développement agentique. Animées par un instructeur certifié NVIDIA qui conçoit ces systèmes en production.",
  'hero.s1':'Formations indépendantes','hero.s2':'Certificats NVIDIA','hero.s3':"Ans d'IA en production",
  'ins.label':'Le formateur','ins.h2':'Qui anime ces formations',
- 'ins.drop':'Déposez votre photo ici<br>ou cliquez pour choisir',
  'ins.p1':"DATA &amp; AI Tech Lead avec plus de 8 ans d'expérience dans la conception, le développement et le déploiement de solutions d'Intelligence Artificielle en production. Docteur en Informatique, spécialisé en Deep Learning, Computer Vision et IA générative. Instructeur NVIDIA &amp; Platinum Ambassador.",
  'ins.p2':"Expérimenté dans l'encadrement d'équipes IA pluridisciplinaires, l'architecture de systèmes d'IA à l'échelle de l'entreprise et la conduite de projets de R&amp;D innovants, de la recherche à la production : IA générative, LLM, IA agentique, Computer Vision, MLOps et observabilité pilotée par l'IA.",
  'ins.p3':"Forte expertise dans l'intégration de capacités d'IA aux plateformes d'Application Performance Monitoring (APM) et de Digital Experience Monitoring (DEM), afin de renforcer la fiabilité des systèmes, d'automatiser l'analyse de cause racine et d'améliorer l'expérience utilisateur. Compétent dans la conception de solutions de supervision intelligentes s'appuyant sur les LLM, les workflows agentiques et le machine learning pour la détection d'anomalies, l'analyse d'incidents et l'optimisation opérationnelle.",
@@ -538,8 +531,8 @@ const FR = {
  'del.l':'Langues','del.lp':'Anglais, français ou arabe. Supports fournis en anglais par défaut, en français sur demande.',
  'del.m':'Supports','del.m1':'Supports de présentation complets','del.m2':'Code annoté et dépôts des labs',
  'del.m3':'Jeux de données utilisés en session','del.m4':'Attestations en fin de formation',
- 'foot.h2':'Réserver une session','foot.btn':"Afficher l'adresse e-mail",
- 'foot.note':'Cliquez pour révéler — ouvre votre messagerie','foot.visits':'Visiteurs','foot.city':'Tunis, Tunisie'
+ 'foot.h2':"Pour plus d'informations",'foot.btn':'Afficher les coordonnées',
+ 'foot.note':'Cliquez pour afficher les coordonnées','foot.visits':'Visiteurs','foot.city':'Tunis, Tunisie'
 };
 
 /* ---------- i18n ---------- */
@@ -565,12 +558,13 @@ document.getElementById('lang').addEventListener('click', e => {
 try { const saved = localStorage.getItem('hf_lang'); if (saved === 'fr') setLang('fr'); } catch(e){}
 
 /* ---------- protected email ---------- */
-const U = ['HEDI','FEKI','doc'], D = ['enetcom','usf','tn'];
+const U = ['HEDI','FEKI','doc'], D = ['enetcom','usf','tn'], P = ['+216','23','03','80','55'];
 document.getElementById('mailbtn').addEventListener('click', function(){
   const addr = U.join('.') + String.fromCharCode(64) + D.join('.');
+  const tel = P.join(' ');
   const span = this.querySelector('span');
   if (span.dataset.shown) { location.href = 'mai' + 'lto:' + addr; return; }
-  span.textContent = addr;
+  span.innerHTML = addr + '<br>' + tel;
   span.dataset.shown = '1';
   const note = document.querySelector('.mailnote');
   if (note) note.textContent = document.documentElement.lang === 'fr' ? 'Cliquez à nouveau pour écrire' : 'Click again to compose';
@@ -632,17 +626,6 @@ document.getElementById('filters').addEventListener('click', e => {
 const rv = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); rv.unobserve(e.target); } }), {threshold:.1});
 document.querySelectorAll('.rv').forEach(el => rv.observe(el));
 
-/* ---------- photo ---------- */
-const photo = document.getElementById('photo'), file = document.getElementById('file'), KEY = 'hf_instructor_photo';
-function setPhoto(src){ photo.innerHTML = '<img alt="Hedi Fkih">'; photo.querySelector('img').src = src; photo.style.border = '1px solid var(--line)'; }
-try { const s = localStorage.getItem(KEY); if (s) setPhoto(s); } catch(e){}
-function read(f){ if (!f || !f.type.startsWith('image/')) return; const r = new FileReader();
-  r.onload = () => { setPhoto(r.result); try { localStorage.setItem(KEY, r.result); } catch(e){} }; r.readAsDataURL(f); }
-photo.addEventListener('click', () => file.click());
-file.addEventListener('change', () => read(file.files[0]));
-['dragenter','dragover'].forEach(t => photo.addEventListener(t, e => { e.preventDefault(); photo.classList.add('drag'); }));
-['dragleave','drop'].forEach(t => photo.addEventListener(t, e => { e.preventDefault(); photo.classList.remove('drag'); }));
-photo.addEventListener('drop', e => read(e.dataTransfer.files[0]));
 </script>
 </body>
 </html>
