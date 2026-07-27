@@ -576,23 +576,28 @@ document.getElementById('mailbtn').addEventListener('click', function(){
   if (note) note.textContent = document.documentElement.lang === 'fr' ? 'Cliquez à nouveau pour écrire' : 'Click again to compose';
 });
 
-/* ---------- visitor counter ---------- */
+/* ---------- visitor counter (owner-only view, one count per session) ---------- */
 (async () => {
-  const el = document.getElementById('visits');
-  try { localStorage.removeItem('hf_owner'); } catch(e){}
+  const box = document.getElementById('visitsBox'), el = document.getElementById('visits');
   const isOwner = () => location.hash === '#stats' || /[?&]stats=1/.test(location.search);
-  const sync = () => { document.getElementById('visitsBox').style.display = isOwner() ? 'flex' : 'none'; };
-  sync();
-  addEventListener('hashchange', sync);
-  const fmt = n => n.toLocaleString();
+  const sync = () => { box.style.display = isOwner() ? 'flex' : 'none'; };
+  sync(); addEventListener('hashchange', sync);
+  const fmt = n => Number(n).toLocaleString();
+  const NS = 'hedifkih-catalog', K = 'visits';
+  let counted = false;
+  try { counted = sessionStorage.getItem('hf_counted') === '1'; } catch(_){}
+  const url = counted
+    ? `https://api.counterapi.dev/v1/${NS}/${K}/`
+    : `https://api.counterapi.dev/v1/${NS}/${K}/up`;
   try {
-    const r = await fetch('https://api.counterapi.dev/v1/hedifkih-catalog/visits/up');
-    if (r.ok) { const j = await r.json(); if (j && (j.count ?? j.value) != null) { el.textContent = fmt(j.count ?? j.value); return; } }
-    throw 0;
-  } catch(e) {
-    let n = 0; try { n = parseInt(localStorage.getItem('hf_visits') || '0', 10) + 1; localStorage.setItem('hf_visits', n); } catch(_) { n = 1; }
+    const r = await fetch(url);
+    if (!r.ok) throw 0;
+    const j = await r.json();
+    const n = j.count ?? j.value;
+    if (n == null) throw 0;
+    if (!counted) { try { sessionStorage.setItem('hf_counted','1'); } catch(_){} }
     el.textContent = fmt(n);
-  }
+  } catch(err) { el.textContent = '—'; }
 })();
 
 /* ---------- chrome ---------- */
