@@ -579,13 +579,11 @@ document.getElementById('mailbtn').addEventListener('click', function(){
 /* ---------- visitor counter ---------- */
 (async () => {
   const el = document.getElementById('visits');
-  let owner = false;
-  try {
-    if (location.hash === '#stats' || /[?&]stats=1/.test(location.search)) { localStorage.setItem('hf_owner','1'); owner = true; }
-    if (localStorage.getItem('hf_owner') === '1') owner = true;
-  } catch(e){}
-  if (owner) document.getElementById('visitsBox').style.display = 'flex';
-  else { addEventListener('hashchange', () => { if (location.hash === '#stats') { try{localStorage.setItem('hf_owner','1');}catch(e){} document.getElementById('visitsBox').style.display='flex'; } }); }
+  try { localStorage.removeItem('hf_owner'); } catch(e){}
+  const isOwner = () => location.hash === '#stats' || /[?&]stats=1/.test(location.search);
+  const sync = () => { document.getElementById('visitsBox').style.display = isOwner() ? 'flex' : 'none'; };
+  sync();
+  addEventListener('hashchange', sync);
   const fmt = n => n.toLocaleString();
   try {
     const r = await fetch('https://api.counterapi.dev/v1/hedifkih-catalog/visits/up');
