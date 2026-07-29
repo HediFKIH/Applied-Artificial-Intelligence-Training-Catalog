@@ -4,6 +4,9 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Applied Artificial Intelligence — Training Catalog 2026 · Hedi Fkih, PhD</title>
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="apple-touch-icon" href="apple-touch-icon.svg">
+<meta name="theme-color" content="#062A31">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -21,14 +24,16 @@ a{color:inherit;text-decoration:none}
 
 #bar{position:fixed;top:0;left:0;height:2px;width:0;background:var(--mint);z-index:100;transition:width .1s linear}
 
-nav{position:fixed;top:0;left:0;right:0;z-index:60;display:flex;align-items:center;justify-content:space-between;
-  padding:14px clamp(20px,5vw,72px);background:rgba(6,42,49,.72);backdrop-filter:blur(14px);
+nav{position:fixed;top:0;left:0;right:0;z-index:60;display:flex;align-items:center;justify-content:space-between;gap:16px;
+  padding:14px clamp(16px,3vw,48px);background:rgba(6,42,49,.72);backdrop-filter:blur(14px);
   border-bottom:1px solid rgba(255,255,255,.08);color:#EAF1F0}
-nav .brand{font-weight:800;font-size:14px;letter-spacing:-.01em;display:flex;align-items:center;gap:10px}
-nav .brand i{width:8px;height:8px;border-radius:50%;background:var(--lime);display:block;box-shadow:0 0 0 0 rgba(155,229,100,.7);animation:pulse 2.6s infinite}
+nav .brand{font-weight:800;font-size:14px;letter-spacing:-.01em;display:flex;align-items:center;gap:10px;white-space:nowrap;flex:none}
+nav .brand em{font-style:normal;font-family:var(--mono);font-size:9px;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--deep);background:var(--mint);padding:4px 8px;border-radius:99px;font-weight:500}
+nav .brand .mark{width:22px;height:22px;flex:none}
 @keyframes pulse{70%{box-shadow:0 0 0 9px rgba(155,229,100,0)}100%{box-shadow:0 0 0 0 rgba(155,229,100,0)}}
 nav .links{display:flex;gap:4px;font-family:var(--mono);font-size:10.5px;letter-spacing:.06em;text-transform:uppercase}
-nav .links a{padding:7px 10px;border-radius:99px;color:rgba(234,241,240,.62);transition:.2s}
+nav .links a{padding:7px 10px;border-radius:99px;color:rgba(234,241,240,.62);transition:.2s;white-space:nowrap}
 nav .links a:hover{color:#fff;background:rgba(255,255,255,.08)}
 nav .links a.on{color:var(--deep);background:var(--mint)}
 nav .right{display:flex;align-items:center;gap:10px}
@@ -36,7 +41,7 @@ nav .right{display:flex;align-items:center;gap:10px}
 .lang button{background:none;border:0;color:rgba(234,241,240,.66);padding:7px 11px;cursor:pointer;transition:.18s;font:inherit}
 .lang button:hover{color:#fff}
 .lang button.on{background:var(--mint);color:var(--deep)}
-nav .cta{font-family:var(--mono);font-size:10.5px;letter-spacing:.06em;text-transform:uppercase;padding:9px 14px;border:1px solid rgba(255,255,255,.28);border-radius:99px;transition:.2s;white-space:nowrap}
+nav .cta{font-family:var(--mono);font-size:10px;letter-spacing:.05em;text-transform:uppercase;padding:9px 13px;border:1px solid rgba(255,255,255,.28);border-radius:99px;transition:.2s;white-space:nowrap}
 nav .cta:hover{background:#fff;color:var(--deep);border-color:#fff}
 .burger{display:none;background:none;border:0;color:#EAF1F0;font-size:20px;cursor:pointer}
 
@@ -53,6 +58,16 @@ header .inner{position:relative;max-width:1180px;margin:0 auto}
 h1{font-family:var(--sans);font-weight:800;font-size:clamp(42px,7vw,84px);line-height:.98;letter-spacing:-.035em;margin:22px 0 0;max-width:14ch}
 h1 em{font-family:var(--serif);font-style:italic;font-weight:400;color:var(--mint);letter-spacing:-.01em}
 header p.lede{font-size:clamp(15px,1.4vw,18px);line-height:1.65;color:#B9D2D3;max-width:60ch;margin:24px 0 0;text-align:justify}
+.chips{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:38px}
+.chip{display:flex;align-items:center;gap:12px;padding:14px 16px;border:1px solid rgba(255,255,255,.2);border-radius:8px;
+  background:rgba(255,255,255,.04);transition:.2s}
+.chip:hover{background:var(--mint);border-color:var(--mint);color:var(--deep);transform:translateY(-2px)}
+.chip b{font-family:var(--mono);font-size:10px;letter-spacing:.1em;color:var(--mint);flex:none}
+.chip:hover b{color:var(--deep)}
+.chip span{font-size:12.5px;font-weight:600;line-height:1.35;letter-spacing:-.01em}
+.chip em{font-style:normal;font-family:var(--mono);font-size:10px;color:#7FB3BC;margin-left:auto;flex:none}
+.chip:hover em{color:var(--deep)}
+@media(max-width:900px){.chips{grid-template-columns:1fr}}
 .stats{display:flex;flex-wrap:wrap;gap:clamp(24px,4vw,56px);margin-top:44px;padding-top:28px;border-top:1px solid rgba(255,255,255,.14)}
 .stat b{display:block;font-size:32px;font-weight:800;letter-spacing:-.03em;color:#fff}
 .stat span{font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:#7FB3BC}
@@ -65,9 +80,29 @@ h2{font-size:clamp(26px,3.4vw,40px);font-weight:800;letter-spacing:-.03em;line-h
 .bio{display:grid;grid-template-columns:270px 1fr;gap:clamp(28px,4vw,56px);align-items:start}
 .photo{position:relative;aspect-ratio:4/5;border-radius:6px;overflow:hidden;background:var(--paper2);border:1px solid var(--line)}
 .photo img{width:100%;height:100%;object-fit:cover;display:block}
-.bio p{font-size:15px;line-height:1.7;margin:0 0 14px;color:#243033;text-align:justify;hyphens:auto}
+.bio p{font-size:15px;line-height:1.7;margin:0 0 14px;color:#243033;text-align:justify;text-align-last:justify;hyphens:auto;word-spacing:-.01em}
 .tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:20px}
 .tag{font-family:var(--mono);font-size:10.5px;letter-spacing:.04em;padding:6px 12px;border-radius:99px;background:var(--paper2);color:var(--petrol);border:1px solid var(--line)}
+.tagl{transition:.18s}
+.tagl:hover{background:var(--deep);border-color:var(--deep);color:#fff}
+.nvlink{display:inline-flex;align-items:center;gap:12px;margin-top:22px;padding:12px 18px;border-radius:8px;
+  background:#111;color:#fff;font-family:var(--mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;transition:.2s}
+.nvlink b{color:#76B900;font-weight:500}
+.ico{width:13px;height:13px;flex:none;opacity:.85}
+.nvlink:hover{background:var(--deep);transform:translateY(-1px)}
+.pubs{margin-top:34px;padding-top:24px;border-top:1px solid var(--line)}
+.pubs h4{font-family:var(--mono);font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--petrol);margin:0 0 16px;display:flex;align-items:baseline;gap:10px}
+.pubs h4 i{font-style:normal;color:var(--muted);letter-spacing:.04em}
+.pubgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:10px}
+.pub{display:block;padding:14px 16px;border:1px solid var(--line);border-radius:8px;background:#fff;transition:.2s}
+.pub:hover{border-color:var(--petrol);box-shadow:0 8px 22px -14px rgba(6,42,49,.5);transform:translateY(-2px)}
+.pub .v{font-size:14px;font-weight:700;letter-spacing:-.015em;color:var(--ink);line-height:1.3}
+.pub .m{display:flex;justify-content:space-between;align-items:baseline;gap:10px;margin-top:8px;
+  font-family:var(--mono);font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.pub .m em{font-style:normal;color:var(--petrol)}
+.pub .v{display:flex;align-items:flex-start;gap:8px;justify-content:space-between}
+.pub .ico{margin-top:3px;color:var(--muted)}
+.pub:hover .ico{color:var(--petrol)}
 
 .filters{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 32px}
 .filters button{font-family:var(--mono);font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;padding:9px 15px;border-radius:99px;
@@ -116,6 +151,13 @@ footer h2{color:#fff;margin:0 0 16px}
 .mailbtn svg{width:18px;height:18px}
 .mailnote{font-family:var(--mono);font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;color:#7FB3BC;margin:12px 0 0}
 footer .c{font-family:var(--mono);font-size:11.5px;line-height:2;color:#9FC4C9;text-align:right}
+.brandbar{grid-column:1/-1;display:flex;align-items:center;gap:16px;margin-top:44px;padding-top:26px;border-top:1px solid rgba(255,255,255,.14)}
+.brandbar svg{width:34px;height:34px;flex:none}
+.brandbar .n{font-size:22px;font-weight:800;letter-spacing:-.04em;color:#F4F1EC;line-height:1}
+.brandbar .s{font-family:var(--mono);font-size:9.5px;letter-spacing:.24em;text-transform:uppercase;color:#C97C3D;margin-top:6px}
+.brandbar .d{margin-left:auto;font-family:var(--mono);font-size:11px;letter-spacing:.1em;color:#7FB3BC}
+.brandbar .d:hover{color:var(--mint)}
+@media(max-width:900px){.brandbar{flex-wrap:wrap}.brandbar .d{margin-left:0;width:100%}}
 footer .c a:hover{color:var(--mint)}
 .visits{margin-top:26px;padding-top:16px;border-top:1px solid rgba(255,255,255,.14);font-family:var(--mono);font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:#7FB3BC;display:flex;align-items:center;gap:10px}
 .visits b{color:#fff;font-size:14px;letter-spacing:0}
@@ -123,10 +165,14 @@ footer .c a:hover{color:var(--mint)}
 .rv{opacity:0;transform:translateY(18px);transition:opacity .7s ease,transform .7s cubic-bezier(.2,.7,.3,1)}
 .rv.in{opacity:1;transform:none}
 
-@media(max-width:1080px){nav .links{gap:0}nav .links a{padding:7px 7px}}
+@media(max-width:1440px){nav .links{gap:0}nav .links a{padding:7px 6px;font-size:9.5px}}
+nav .links.open{display:flex!important;position:absolute;top:100%;right:clamp(16px,3vw,48px);left:auto;width:230px;
+  flex-direction:column;background:rgba(6,42,49,.97);backdrop-filter:blur(14px);padding:10px;gap:2px;
+  border:1px solid rgba(255,255,255,.14);border-radius:10px;box-shadow:0 22px 50px -20px rgba(0,0,0,.6)}
+nav .links.open a{font-size:10.5px;padding:10px 12px;border-radius:6px}
+@media(max-width:1180px){nav .links{display:none}.burger{display:block}}
 @media(max-width:900px){
   nav .links{display:none}
-  nav .links.open{display:flex;position:absolute;top:100%;left:0;right:0;flex-direction:column;background:var(--deep);padding:10px 20px 18px;gap:2px}
   .burger{display:block}
   .bio{grid-template-columns:1fr}
   .photo{max-width:220px}
@@ -140,12 +186,15 @@ footer .c a:hover{color:var(--mint)}
 <div id="bar"></div>
 
 <nav>
-  <a class="brand" href="#top"><i></i>Hedi Fkih, PhD in Computer Science</a>
+  <a class="brand" href="#instructor"><svg class="mark" viewBox="0 0 96 96" fill="none" aria-hidden="true"><g stroke-width="10" stroke-linecap="round"><path d="M14 14c0 22 12 26 20 34s10 16 10 36" stroke="#6FC2CF"/><path d="M48 14v70" stroke="#F4F1EC"/><path d="M82 14c0 22-12 26-20 34s-10 16-10 36" stroke="#C97C3D"/></g></svg><span data-i18n="brand.name">Hedi Fkih, PhD in Computer Science</span><em data-i18n="brand.role">Instructor</em></a>
   <div class="links" id="links">
-    <a href="#instructor" data-i18n="nav.instructor">Instructor</a>
-    <a href="#p01">P-01</a><a href="#p02">P-02</a><a href="#p03">P-03</a>
-    <a href="#p04">P-04</a><a href="#p05">P-05</a><a href="#p06">P-06</a>
-    <a href="#delivery" data-i18n="nav.delivery">Delivery</a>
+    <a href="#instructor" data-i18n="nav.instructor">Introduction</a>
+    <a href="#p01" data-i18n="nav.p01">Python &amp; ML</a>
+    <a href="#p02" data-i18n="nav.p02">Agriculture</a>
+    <a href="#p03" data-i18n="nav.p03">Deep Learning</a>
+    <a href="#p04" data-i18n="nav.p04">NLP</a>
+    <a href="#p05" data-i18n="nav.p05">Generative AI</a>
+    <a href="#p06" data-i18n="nav.p06">Agentic Dev</a>
   </div>
   <div class="right">
     <div class="lang" id="lang">
@@ -162,6 +211,14 @@ footer .c a:hover{color:var(--mint)}
     <div class="eyebrow" data-i18n="hero.eyebrow">Instructor-led training · Edition 2026</div>
     <h1 data-i18n-html="hero.h1">Applied <em>Artificial</em> Intelligence</h1>
     <p class="lede" data-i18n="hero.lede">Six standalone courses, ordered from foundations to specialization — Python and machine learning, applied agricultural AI, three NVIDIA-certifying deep learning and generative AI courses, and agentic software engineering. Taught by an NVIDIA-certified instructor who builds these systems in production.</p>
+    <div class="chips">
+      <a class="chip" href="#p01"><span data-i18n="ch1">Advanced Python &amp; ML Foundations</span><em>18 h</em></a>
+      <a class="chip" href="#p02"><span data-i18n="ch2">AI for Agriculture 4.0</span><em>12 h</em></a>
+      <a class="chip" href="#p03"><span data-i18n="ch3">Fundamentals of Deep Learning</span><em>12 h</em></a>
+      <a class="chip" href="#p04"><span data-i18n="ch4">Transformer-Based NLP Applications</span><em>12 h</em></a>
+      <a class="chip" href="#p05"><span data-i18n="ch5">Generative AI with Diffusion Models</span><em>12 h</em></a>
+      <a class="chip" href="#p06"><span data-i18n="ch6">Agentic Development</span><em>21 h</em></a>
+    </div>
     <div class="stats">
       <div class="stat"><b>6</b><span data-i18n="hero.s1">Standalone courses</span></div>
       <div class="stat"><b>3</b><span data-i18n="hero.s2">NVIDIA certificates</span></div>
@@ -186,9 +243,24 @@ footer .c a:hover{color:var(--mint)}
         <span class="tag" data-i18n="tag.lead">DATA &amp; AI Team Lead</span>
         <span class="tag" data-i18n="tag.phd">PhD, Highest Honors</span>
         <span class="tag">NVIDIA Platinum Ambassador</span>
-        <span class="tag" data-i18n="tag.inst">NVIDIA Certified Instructor</span>
+        <a class="tag tagl" href="https://www.nvidia.com/en-eu/training/instructor-directory/bio/?instructorId=0038Z00002t0ajgQAA" target="_blank" rel="noopener" data-i18n="tag.inst">NVIDIA Certified Instructor</a>
         <span class="tag">AWS Solutions Architect</span>
         <span class="tag" data-i18n="tag.langs">English · French · Arabic</span>
+      </div>
+      <a class="nvlink" href="https://www.nvidia.com/en-eu/training/instructor-directory/bio/?instructorId=0038Z00002t0ajgQAA" target="_blank" rel="noopener">
+        <b>NVIDIA</b><span data-i18n="nv.link">Verified instructor profile</span><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><path d="M15 3h6v6"/><path d="M10 14 21 3"/></svg>
+      </a>
+      <div class="pubs">
+        <h4><span data-i18n="pub.h">Publications</span> <i>7</i></h4>
+        <div class="pubgrid">
+          <a class="pub" href="https://doi.org/10.1016/j.iswa.2024.200429" target="_blank" rel="noopener"><div class="v">Intelligent Systems with Applications<svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><path d="M15 3h6v6"/><path d="M10 14 21 3"/></svg></div><div class="m"><em>Elsevier</em><span>2024</span></div></a>
+          <a class="pub" href="https://doi.org/10.1109/ATSIP55956.2022.9805951" target="_blank" rel="noopener"><div class="v">IEEE ATSIP<svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><path d="M15 3h6v6"/><path d="M10 14 21 3"/></svg></div><div class="m"><em>IEEE</em><span>2022</span></div></a>
+          <a class="pub" href="https://ieeexplore.ieee.org/document/10337589" target="_blank" rel="noopener"><div class="v">IEEE Xplore<svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><path d="M15 3h6v6"/><path d="M10 14 21 3"/></svg></div><div class="m"><em>IEEE</em><span>2023</span></div></a>
+          <a class="pub" href="https://doi.org/10.1007/s43069-022-00163-7" target="_blank" rel="noopener"><div class="v">Operations Research Forum<svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><path d="M15 3h6v6"/><path d="M10 14 21 3"/></svg></div><div class="m"><em>Springer</em><span>2022</span></div></a>
+          <a class="pub" href="https://link.springer.com/chapter/10.1007/978-3-032-10486-1_6" target="_blank" rel="noopener"><div class="v">Springer LNCS<svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><path d="M15 3h6v6"/><path d="M10 14 21 3"/></svg></div><div class="m"><em>Springer</em><span>2025</span></div></a>
+          <a class="pub" href="https://link.springer.com/chapter/10.1007/978-3-032-15638-9_29" target="_blank" rel="noopener"><div class="v">Springer LNCS<svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><path d="M15 3h6v6"/><path d="M10 14 21 3"/></svg></div><div class="m"><em>Springer</em><span>2025</span></div></a>
+          <a class="pub" href="https://www.scitepress.org/Papers/2026/144034/144034.pdf" target="_blank" rel="noopener"><div class="v">ICAART<svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><path d="M15 3h6v6"/><path d="M10 14 21 3"/></svg></div><div class="m"><em>SciTePress</em><span>2026</span></div></a>
+        </div>
       </div>
     </div>
   </div>
@@ -446,7 +518,7 @@ footer .c a:hover{color:var(--mint)}
     <div>
       <h2 data-i18n="foot.h2">For more information</h2>
       <button class="mailbtn" id="mailbtn">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 7 10 6 10-6"/></svg>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 11v5"/><path d="M12 7.6v.1"/></svg>
         <span data-i18n="foot.btn">Show contact details</span>
       </button>
       <p class="mailnote" data-i18n="foot.note">Click to reveal contact details</p>
@@ -457,22 +529,30 @@ footer .c a:hover{color:var(--mint)}
       <a href="https://linkedin.com/in/hedi-fkih" target="_blank" rel="noopener">linkedin.com/in/hedi-fkih</a><br>
       <a href="https://github.com/HediFKIH" target="_blank" rel="noopener">github.com/HediFKIH</a>
     </div>
+    <div class="brandbar">
+      <svg viewBox="0 0 96 96" fill="none" aria-hidden="true"><g stroke-width="9" stroke-linecap="round"><path d="M14 14c0 22 12 26 20 34s10 16 10 36" stroke="#6FC2CF"/><path d="M48 14v70" stroke="#F4F1EC"/><path d="M82 14c0 22-12 26-20 34s-10 16-10 36" stroke="#C97C3D"/></g></svg>
+      <div>
+        <div class="n">Isaffen</div>
+        <div class="s" data-i18n="brand.slogan">Rivers of knowledge</div>
+      </div>
+      <a class="d" href="https://academy.isaffen.com" target="_blank" rel="noopener">academy.isaffen.com</a>
+    </div>
   </div>
 </footer>
 
 <script>
 /* ---------- French dictionary (technical terms kept in English by convention) ---------- */
 const FR = {
- 'nav.instructor':'Formateur','nav.delivery':'Modalités','nav.cta':'Pour plus d\'informations',
+ 'brand.name':'Hedi Fkih, Docteur en Informatique','brand.slogan':'Rivières de savoir','brand.role':'Formateur','nav.instructor':'Introduction','nav.p01':'Python &amp; ML','nav.p02':'Agriculture','nav.p03':'Deep Learning','nav.p04':'NLP','nav.p05':'IA générative','nav.p06':'Dév. agentique','nav.delivery':'Modalités','nav.cta':'Pour plus d\'informations',
  'hero.eyebrow':'Formation animée par un expert · Édition 2026',
  'hero.h1':'Intelligence <em>Artificielle</em> Appliquée',
  'hero.lede':"Six formations indépendantes, ordonnées des fondamentaux à la spécialisation : Python et machine learning, IA appliquée à l'agriculture, trois cours certifiants NVIDIA en deep learning et IA générative, et développement agentique. Animées par un instructeur certifié NVIDIA qui conçoit ces systèmes en production.",
- 'hero.s1':'Formations indépendantes','hero.s2':'Certificats NVIDIA','hero.s3':"Ans d'IA en production",
+ 'ch1':'Python avancé &amp; fondamentaux du ML','ch2':"IA pour l'Agriculture 4.0",'ch3':'Fundamentals of Deep Learning','ch4':'Transformer-Based NLP Applications','ch5':'Generative AI with Diffusion Models','ch6':'Développement agentique','hero.s1':'Formations indépendantes','hero.s2':'Certificats NVIDIA','hero.s3':"Ans d'IA en production",
  'ins.label':'Le formateur','ins.h2':'Qui anime ces formations',
  'ins.p1':"DATA &amp; AI Tech Lead avec plus de 8 ans d'expérience dans la conception, le développement et le déploiement de solutions d'Intelligence Artificielle en production. Docteur en Informatique, spécialisé en Deep Learning, Computer Vision et IA générative. Instructeur NVIDIA &amp; Platinum Ambassador.",
  'ins.p2':"Expérimenté dans l'encadrement d'équipes IA pluridisciplinaires, l'architecture de systèmes d'IA à l'échelle de l'entreprise et la conduite de projets de R&amp;D innovants, de la recherche à la production : IA générative, LLM, IA agentique, Computer Vision, MLOps et observabilité pilotée par l'IA.",
  'ins.p3':"Forte expertise dans l'intégration de capacités d'IA aux plateformes d'Application Performance Monitoring (APM) et de Digital Experience Monitoring (DEM), afin de renforcer la fiabilité des systèmes, d'automatiser l'analyse de cause racine et d'améliorer l'expérience utilisateur. Compétent dans la conception de solutions de supervision intelligentes s'appuyant sur les LLM, les workflows agentiques et le machine learning pour la détection d'anomalies, l'analyse d'incidents et l'optimisation opérationnelle.",
- 'tag.lead':'DATA &amp; AI Team Lead','tag.phd':'Doctorat, mention très honorable','tag.inst':'Instructeur certifié NVIDIA','tag.langs':'Anglais · Français · Arabe',
+ 'pub.h':'Publications','nv.link':'Profil instructeur vérifié','tag.inst':'Instructeur certifié NVIDIA','tag.lead':'DATA &amp; AI Team Lead','tag.phd':'Doctorat, mention très honorable','tag.langs':'Anglais · Français · Arabe',
  'cat.label':'Le catalogue','cat.h2':'Six formations, les fondamentaux d\'abord',
  'cat.lede':'Chaque formation est indépendante et peut être réservée seule. Cliquez sur une formation pour afficher son programme jour par jour.',
  'f.all':'Toutes','f.found':'Fondamentaux','f.nv':'Certifiées NVIDIA','f.work':'Ateliers',
